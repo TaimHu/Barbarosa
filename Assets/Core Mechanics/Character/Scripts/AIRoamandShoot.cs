@@ -14,6 +14,8 @@ public class AIRoamandShoot : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
 
+    public float force = 50f;
+
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -25,7 +27,7 @@ public class AIRoamandShoot : MonoBehaviour
 
     public void Awake()
     {
-        player = GameObject.Find("PlayerArmature").transform; //set the main Player here
+        player = GameObject.Find("Ship").transform; //set the main Player here
         agent = GetComponent<NavMeshAgent>();
 
     }
@@ -72,12 +74,12 @@ public class AIRoamandShoot : MonoBehaviour
         if (!alreadyAttacked) {
             //attack code here
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * (force + 20), ForceMode.Impulse);
+            rb.AddForce(transform.up * force/2, ForceMode.Impulse);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-            Destroy(rb.gameObject, 2);
+            Destroy(rb.gameObject, 10);
         }
     }
 
