@@ -27,7 +27,7 @@ public class AIRoamandShoot : MonoBehaviour
 
     public void Awake()
     {
-        player = GameObject.Find("Ship").transform; //set the main Player here
+        player = GameObject.Find("PlayerArmature").transform; //set the main Player here
         agent = GetComponent<NavMeshAgent>();
 
     }
