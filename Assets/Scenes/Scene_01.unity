@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 85421622}
   - component: {fileID: 85421619}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: VillageQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -815,7 +815,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questUI1: {fileID: 1124440888}
-  showQuest1: {fileID: 1912369165}
+  showQuest1: {fileID: 1912369167}
+  quest1KillCount: 0
 --- !u!33 &85421620
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14946,7 +14947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Task 1 Activated -\nEnemies Killed: \n"
+  m_text: Hello
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

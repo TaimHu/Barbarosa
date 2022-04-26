@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     private int counter;
+    private static int killCount = 0;
     public GameObject Pickup;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,8 @@ public class EnemyHealth : MonoBehaviour
         if (counter == 3) {
             Instantiate(Pickup, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            killCount++;
+            GameObject.Find("VillageQuest").GetComponent<Quest>().quest1KillCount = killCount;
         }
     }
 }
