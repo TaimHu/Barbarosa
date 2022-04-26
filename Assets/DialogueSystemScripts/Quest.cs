@@ -9,8 +9,9 @@ public class Quest : MonoBehaviour
     public TextMeshProUGUI showQuest1;
     public int quest1KillCount = 0;
     private int temp = 0;
-    bool entered = false;
-    bool alreadyPlayed = false;
+    private int state = 0;
+    bool enteredQuest1 = false;
+    bool alreadyPlayedQuest1 = false;
 
   //  public AudioClip sound;
    // private AudioSource audio;
@@ -26,12 +27,12 @@ public class Quest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && !alreadyPlayed && !entered) {
+        if (other.tag == "Player" && !alreadyPlayedQuest1 && !enteredQuest1 && state == 0) {
             questUI1.SetActive(true);
             showQuest1.text = " ";
             // audio.PlayOneShot(sound, 5);
-            alreadyPlayed = true;
-            entered = true;
+            alreadyPlayedQuest1 = true;
+            enteredQuest1 = true;
         }
     }
 
@@ -50,6 +51,9 @@ public class Quest : MonoBehaviour
         {
             showQuest1.text = "Task 1 Activated -\nEnemies Killed: " + quest1KillCount + "/4";
             temp = quest1KillCount;
+        }
+        if (quest1KillCount == 4) {
+            showQuest1.text = "Return to Villager Sidd!";
         }
     }
 }
