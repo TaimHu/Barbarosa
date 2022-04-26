@@ -20,6 +20,7 @@ public class AIRoamandShoot : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    public GameObject target;
 
     //States
     public float sightRange, attackRange;
@@ -27,7 +28,7 @@ public class AIRoamandShoot : MonoBehaviour
 
     public void Awake()
     {
-        player = GameObject.Find("PlayerArmature").transform; //set the main Player here
+        player = GameObject.Find(target.tag).transform; //set the main Player here
         agent = GetComponent<NavMeshAgent>();
 
     }

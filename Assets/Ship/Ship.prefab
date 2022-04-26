@@ -589,6 +589,8 @@ GameObject:
   - component: {fileID: 4002493424033361453}
   - component: {fileID: 6306701073286431201}
   - component: {fileID: 7256177565868333755}
+  - component: {fileID: 4361655368215724916}
+  - component: {fileID: 1274846483449610351}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -648,6 +650,38 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
+--- !u!114 &4361655368215724916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002493424033853965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8861800781c540d41a82617817338ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  player: {fileID: 0}
+  playerRootCamera: {fileID: 0}
+  ship: {fileID: 0}
+  shipRootCamera: {fileID: 0}
+--- !u!114 &1274846483449610351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002493424033853965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ae639e694dd5346ad88e22f39ca6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  Health: {fileID: 0}
+  Ammo: {fileID: 0}
 --- !u!1 &4002493424033853967
 GameObject:
   m_ObjectHideFlags: 0
