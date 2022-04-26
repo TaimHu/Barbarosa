@@ -9,14 +9,20 @@ public class Quest : MonoBehaviour
     public TextMeshProUGUI showQuest1;
     public GameObject questUI2;
     public TextMeshProUGUI showQuest2;
+    public GameObject questUI4;
+    public TextMeshProUGUI showQuest4;
+    public TextMeshProUGUI showQuestSon;
+
     private int questKillCount = 0;
     public int tempKills = 0;
     private int sonCount = 0;
-    private int state = 0;
+    public int state = 0;
     bool enteredQuest1 = false;
     bool alreadyPlayedQuest1 = false;
     bool enteredQuest2 = false;
     bool alreadyPlayedQuest2 = false;
+    bool enteredQuest4 = false;
+    bool alreadyPlayedQuest4 = false;
 
     //  public AudioClip sound;
     // private AudioSource audio;
@@ -30,6 +36,8 @@ public class Quest : MonoBehaviour
         questUI1.SetActive(false);
         showQuest2.text = " ";
         questUI2.SetActive(false);
+        showQuest4.text = " ";
+        questUI4.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +60,15 @@ public class Quest : MonoBehaviour
             alreadyPlayedQuest2 = true;
             enteredQuest2 = true;
         }
+        if (other.tag == "Player" && !alreadyPlayedQuest4 && !enteredQuest4 && state == 3)
+        {
+            showQuestSon.text = " ";
+            questUI4.SetActive(true);
+            showQuest4.text = " ";
+             enteredQuest4 = true;
+             alreadyPlayedQuest4 = true;
+            //RETURN TO MAIN MENU
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -65,24 +82,49 @@ public class Quest : MonoBehaviour
         {
             //  Destroy(showQuest);
             Destroy(questUI2);
-            showQuest1.text = "Task 2 Activated -\nEnemies Killed: " + questKillCount.ToString() + "/4\n" + 
+            showQuest2.text = "Task 2 Activated -\nEnemies Killed: " + questKillCount.ToString() + "/4\n" + 
                 "Find Sidd's Son: " + sonCount.ToString() + "/1";
         }
+        if (other.tag == "Player" && state == 3) {
+            showQuestSon.text = " "; 
+            Destroy(questUI4);
+            showQuest4.text = "Thank You for playing the game";
+            //RETURN TO MAIN MENU
+        }
+       
     }
     // Update is called once per frame
     void Update()
     {
-        if (tempKills != questKillCount)
+        if (tempKills != questKillCount && state == 0)
         {
             questKillCount = tempKills;
             showQuest1.text = "Task 1 Activated -\nEnemies Killed: " + questKillCount + "/4";
         }
-        if (questKillCount == 4) {
+        if (tempKills != questKillCount && state == 1)
+        {
+            questKillCount = tempKills;
+            showQuest2.text = "Task 2 Activated -\nEnemies Killed: " + questKillCount.ToString() + "/4\n" +
+                "Find Sidd's Son: " + sonCount.ToString() + "/1";
+        }
+        if (questKillCount == 4 && state == 0) {
             showQuest1.text = "Return to Villager Sidd!";
             state++;
             tempKills = 0;
             questKillCount = 0;
             Debug.Log(tempKills);
+        }
+        if (questKillCount == 4 && state == 1)
+        {
+           // showQuest1.text = "Return to Villager Sidd!";
+            state++;
+            tempKills = 0;
+            questKillCount = 0;
+            Debug.Log(tempKills);
+        }
+        if (state == 2) {
+            GameObject.Find("VillagerSonCube").GetComponent<GetSonQuest>().state = this.state;
+            showQuest2.text = " Find the Son ";
         }
     }
 }
