@@ -9,9 +9,9 @@ public class Quest : MonoBehaviour
     public TextMeshProUGUI showQuest1;
     public GameObject questUI2;
     public TextMeshProUGUI showQuest2;
-    private int quest1KillCount = 0;
-    private int quest2KillCount = 0;
+    private int questKillCount = 0;
     public int tempKills = 0;
+    private int sonCount = 0;
     private int state = 0;
     bool enteredQuest1 = false;
     bool alreadyPlayedQuest1 = false;
@@ -28,6 +28,8 @@ public class Quest : MonoBehaviour
         //audio = GetComponent<AudioSource>();
         showQuest1.text = " ";
         questUI1.SetActive(false);
+        showQuest2.text = " ";
+        questUI2.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,12 +37,15 @@ public class Quest : MonoBehaviour
         if (other.tag == "Player" && !alreadyPlayedQuest1 && !enteredQuest1 && state == 0) {
             questUI1.SetActive(true);
             showQuest1.text = " ";
+
+
             // audio.PlayOneShot(sound, 5);
             alreadyPlayedQuest1 = true;
             enteredQuest1 = true;
         }
         if (other.tag == "Player" && !alreadyPlayedQuest2 && !enteredQuest2 && state == 1)
         {
+            showQuest1.text = " ";
             questUI2.SetActive(true);
             showQuest2.text = " ";
             // audio.PlayOneShot(sound, 5);
@@ -51,25 +56,32 @@ public class Quest : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player") {
+        if (other.tag == "Player" && state == 0) {
             //  Destroy(showQuest);
             Destroy(questUI1);
-            showQuest1.text = "Task 1 Activated -\nEnemies Killed: " + quest1KillCount.ToString() + "/4";
+            showQuest1.text = "Task 1 Activated -\nEnemies Killed: " + questKillCount.ToString() + "/4";
+        }
+        if (other.tag == "Player" && state == 1)
+        {
+            //  Destroy(showQuest);
+            Destroy(questUI2);
+            showQuest1.text = "Task 2 Activated -\nEnemies Killed: " + questKillCount.ToString() + "/4\n" + 
+                "Find Sidd's Son: " + sonCount.ToString() + "/1";
         }
     }
     // Update is called once per frame
     void Update()
     {
-        if (tempKills != quest1KillCount)
+        if (tempKills != questKillCount)
         {
-            quest1KillCount = tempKills;
-            showQuest1.text = "Task 1 Activated -\nEnemies Killed: " + quest1KillCount + "/4";
+            questKillCount = tempKills;
+            showQuest1.text = "Task 1 Activated -\nEnemies Killed: " + questKillCount + "/4";
         }
-        if (quest1KillCount == 4) {
+        if (questKillCount == 4) {
             showQuest1.text = "Return to Villager Sidd!";
             state++;
             tempKills = 0;
-            quest1KillCount = 0;
+            questKillCount = 0;
             Debug.Log(tempKills);
         }
     }
