@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(Pickup, transform.position, Quaternion.identity);
             Destroy(gameObject);
             killCount++;
-            GameObject.Find("VillageQuest").GetComponent<Quest>().quest1KillCount = killCount;
+            GameObject.Find("VillageQuest").GetComponent<Quest>().tempKills = killCount;
         }
     }
 }

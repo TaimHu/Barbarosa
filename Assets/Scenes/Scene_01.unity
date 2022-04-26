@@ -816,7 +816,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questUI1: {fileID: 1124440888}
   showQuest1: {fileID: 1912369167}
-  quest1KillCount: 0
+  questUI2: {fileID: 0}
+  showQuest2: {fileID: 0}
+  tempKills: 0
 --- !u!33 &85421620
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2631,7 +2633,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 1.31
   force: 50
-  timeBetweenAttacks: 1.47
+  timeBetweenAttacks: 15.21
   projectile: {fileID: 3520259050558714532, guid: 0c0926bfadb951b478d73b1fbf31f5b7, type: 3}
   sightRange: 5.72
   attackRange: 3.66
@@ -3156,7 +3158,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 1.31
   force: 50
-  timeBetweenAttacks: 1.47
+  timeBetweenAttacks: 9.84
   projectile: {fileID: 3520259050558714532, guid: 0c0926bfadb951b478d73b1fbf31f5b7, type: 3}
   sightRange: 5.72
   attackRange: 3.66
@@ -6551,8 +6553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 3.37
-  SprintSpeed: 5.06
+  MoveSpeed: 8.44
+  SprintSpeed: 12.91
   RotationSmoothTime: 0.12
   SpeedChangeRate: 27.78
   lookSensitivity: 0.5
@@ -8288,7 +8290,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 1.31
   force: 50
-  timeBetweenAttacks: 1.47
+  timeBetweenAttacks: 7.89
   projectile: {fileID: 3520259050558714532, guid: 0c0926bfadb951b478d73b1fbf31f5b7, type: 3}
   sightRange: 5.72
   attackRange: 3.66
@@ -15828,7 +15830,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 1.31
   force: 50
-  timeBetweenAttacks: 1.47
+  timeBetweenAttacks: 7.08
   projectile: {fileID: 3520259050558714532, guid: 0c0926bfadb951b478d73b1fbf31f5b7, type: 3}
   sightRange: 5.72
   attackRange: 3.66

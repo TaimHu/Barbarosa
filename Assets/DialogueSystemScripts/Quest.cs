@@ -7,14 +7,19 @@ public class Quest : MonoBehaviour
 {
     public GameObject questUI1;
     public TextMeshProUGUI showQuest1;
-    public int quest1KillCount = 0;
-    private int temp = 0;
+    public GameObject questUI2;
+    public TextMeshProUGUI showQuest2;
+    private int quest1KillCount = 0;
+    private int quest2KillCount = 0;
+    public int tempKills = 0;
     private int state = 0;
     bool enteredQuest1 = false;
     bool alreadyPlayedQuest1 = false;
+    bool enteredQuest2 = false;
+    bool alreadyPlayedQuest2 = false;
 
-  //  public AudioClip sound;
-   // private AudioSource audio;
+    //  public AudioClip sound;
+    // private AudioSource audio;
 
 
     // Start is called before the first frame update
@@ -34,6 +39,14 @@ public class Quest : MonoBehaviour
             alreadyPlayedQuest1 = true;
             enteredQuest1 = true;
         }
+        if (other.tag == "Player" && !alreadyPlayedQuest2 && !enteredQuest2 && state == 1)
+        {
+            questUI2.SetActive(true);
+            showQuest2.text = " ";
+            // audio.PlayOneShot(sound, 5);
+            alreadyPlayedQuest2 = true;
+            enteredQuest2 = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -47,13 +60,17 @@ public class Quest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (temp != quest1KillCount)
+        if (tempKills != quest1KillCount)
         {
+            quest1KillCount = tempKills;
             showQuest1.text = "Task 1 Activated -\nEnemies Killed: " + quest1KillCount + "/4";
-            temp = quest1KillCount;
         }
         if (quest1KillCount == 4) {
             showQuest1.text = "Return to Villager Sidd!";
+            state++;
+            tempKills = 0;
+            quest1KillCount = 0;
+            Debug.Log(tempKills);
         }
     }
 }
