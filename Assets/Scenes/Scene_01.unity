@@ -6558,7 +6558,7 @@ MonoBehaviour:
   RotationSmoothTime: 0.12
   SpeedChangeRate: 27.78
   lookSensitivity: 0.5
-  JumpHeight: 1.2
+  JumpHeight: 4.11
   Gravity: -15
   JumpTimeout: 0.5
   FallTimeout: 0.15
@@ -7897,6 +7897,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0023ddc4bf9bdf94d90a03fd4d25bec9, type: 3}
   m_PrefabInstance: {fileID: 967571639}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &972301634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 58a1068b2ba43594989021bc53fdd48f, type: 3}
+  m_PrefabInstance: {fileID: 602465770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &972301636
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972301634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &973673632
 PrefabInstance:
   m_ObjectHideFlags: 0
