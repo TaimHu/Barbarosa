@@ -10465,7 +10465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questUISon: {fileID: 699407186}
   showQuestSon: {fileID: 1541003058}
-  showQuest2: {fileID: 0}
+  showQuest2: {fileID: 2059738620}
   state: 0
 --- !u!136 &1230953434
 CapsuleCollider:
