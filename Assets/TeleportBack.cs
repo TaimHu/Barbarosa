@@ -35,7 +35,8 @@ public class TeleportBack : MonoBehaviour
                     playerRootCamera.SetActive(false);
                     ship.SetActive(true);
                     TeleportPosition.SetActive(false);
-                    player.transform.position = new Vector3(17.3867035f,-31.758522f,43.7970467f);
+                    ship.transform.position = ShipTeleport.transform.position;
+                    // Vector3(17.3867035f,-31.758522f,43.7970467f);
                     //s.transform.position = new Vector3(0f,0f,0f);
                     shipRootCamera.SetActive(true);
                     
