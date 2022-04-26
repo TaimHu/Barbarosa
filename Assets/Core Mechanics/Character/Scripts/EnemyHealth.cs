@@ -25,6 +25,9 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
             killCount++;
             GameObject.Find("VillageQuest").GetComponent<Quest>().tempKills = killCount;
+            if (killCount == 4) {
+                killCount = 0;
+            }
         }
     }
 }
