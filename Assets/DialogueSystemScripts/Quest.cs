@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Quest : MonoBehaviour
 {
@@ -96,6 +97,7 @@ public class Quest : MonoBehaviour
             Destroy(questUI4);
             questMarker.SetActive(false);
             showQuest4.text = "Thank You for playing the game";
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
             //RETURN TO MAIN MENU
         }
        
