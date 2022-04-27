@@ -26,7 +26,7 @@ public class AIRoamandShoot : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    public void Awake()
+    public void Start()
     {
         player = GameObject.Find(target.tag).transform; //set the main Player here
         agent = GetComponent<NavMeshAgent>();

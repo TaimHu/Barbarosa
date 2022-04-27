@@ -12,6 +12,8 @@ public class Quest : MonoBehaviour
     public GameObject questUI4;
     public TextMeshProUGUI showQuest4;
     public TextMeshProUGUI showQuestSon;
+    private GameObject questMarker;
+    private GameObject questMarkerSon;
 
     private int questKillCount = 0;
     public int tempKills = 0;
@@ -32,6 +34,8 @@ public class Quest : MonoBehaviour
     void Start()
     {
         //audio = GetComponent<AudioSource>();
+        questMarker = GameObject.Find("QuestMarker");
+        questMarkerSon = GameObject.Find("QuestMarkerSon");
         showQuest1.text = " ";
         questUI1.SetActive(false);
         showQuest2.text = " ";
@@ -76,18 +80,21 @@ public class Quest : MonoBehaviour
         if (other.tag == "Player" && state == 0) {
             //  Destroy(showQuest);
             Destroy(questUI1);
+            questMarker.SetActive(false);
             showQuest1.text = "Task 1 Activated -\nEnemies Killed: " + questKillCount.ToString() + "/4";
         }
         if (other.tag == "Player" && state == 1)
         {
             //  Destroy(showQuest);
             Destroy(questUI2);
+            questMarker.SetActive(false);
             showQuest2.text = "Task 2 Activated -\nEnemies Killed: " + questKillCount.ToString() + "/4\n" + 
                 "Find Sidd's Son: " + sonCount.ToString() + "/1";
         }
         if (other.tag == "Player" && state == 3) {
             showQuestSon.text = " "; 
             Destroy(questUI4);
+            questMarker.SetActive(false);
             showQuest4.text = "Thank You for playing the game";
             //RETURN TO MAIN MENU
         }
@@ -107,23 +114,20 @@ public class Quest : MonoBehaviour
             showQuest2.text = "Task 2 Activated -\nEnemies Killed: " + questKillCount.ToString() + "/4\n" +
                 "Find Sidd's Son: " + sonCount.ToString() + "/1";
         }
-        if (questKillCount == 4 && state == 0) {
-            showQuest1.text = "Return to Villager Sidd!";
-            state++;
-            tempKills = 0;
-            questKillCount = 0;
-            Debug.Log(tempKills);
-        }
-        if (questKillCount == 4 && state == 1)
+        if (questKillCount == 4)
         {
-           // showQuest1.text = "Return to Villager Sidd!";
+            if (state == 0)
+            {
+                showQuest1.text = "Return to Villager Sidd!";
+            }
+            questMarker.SetActive(true);
             state++;
             tempKills = 0;
             questKillCount = 0;
-            Debug.Log(tempKills);
         }
         if (state == 2) {
             GameObject.Find("VillagerSonCube").GetComponent<GetSonQuest>().state = this.state;
+            questMarkerSon.SetActive(true);
             showQuest2.text = " Find the Son ";
         }
     }

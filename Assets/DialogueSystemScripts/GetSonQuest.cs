@@ -12,6 +12,7 @@ public class GetSonQuest : MonoBehaviour
     public int state = 0;
     bool enteredQuestSon = false;
     bool alreadyPlayedQuestSon = false;
+    private GameObject questionMark;
     private int killCount = 0;
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +36,7 @@ public class GetSonQuest : MonoBehaviour
         {
             //  Destroy(showQuest);
             Destroy(questUISon);
+            questionMark.SetActive(false);
             showQuest2.text = " ";
             showQuestSon.text = "Return to Sidd on first island";
             GameObject.Find("VillageQuest").GetComponent<Quest>().state = 3;
@@ -44,6 +46,8 @@ public class GetSonQuest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        questionMark = GameObject.Find("QuestMarkerSon");
+        questionMark.SetActive(false);
         showQuestSon.text = " ";
         questUISon.SetActive(false);
 
